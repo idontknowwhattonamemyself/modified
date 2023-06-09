@@ -699,7 +699,14 @@ end
 
 -- game specific functions
 function EspInterface.getWeapon(player)
-	return "Unknown";
+	if player.Character then
+	if player.Character:FindFirstChildOfClass("Tool") then 
+	return player.Character:FindFirstChildOfClass("Tool").Name;
+	else
+	return "None"
+	end
+	end
+	return "None"
 end
 
 function EspInterface.isFriendly(player)
